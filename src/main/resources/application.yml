@@ -1,0 +1,35 @@
+pricing-service:
+  products:
+  - name: 'Logitech K400 Plus Wireless Touch TV Keyboard With Easy Media Control'
+    id: '00000000-0000-0000-0000-000000000000'
+    price: '99.99'
+  - name: 'HP Wireless Mouse X3000 G2 (28Y30AA)'
+    id: '00000000-0000-0000-0000-000000000001'
+    price: '12.49'
+  - name: 'TP-Link AX1800 WiFi 6 Router (Archer AX21) Dual Band Wireless Internet Router'
+    id: '00000000-0000-0000-0000-000000000002'
+    price: '189.99'
+  - name: 'USB 2.0 A-Male to Micro B Cable'
+    id: '00000000-0000-0000-0000-000000000003'
+    price: '0.59'
+
+spring:
+  application:
+    name: pricing-service
+  main:
+    banner-mode: off
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /openapi.json
+
+logging:
+  level:
+    root: WARN
+    com.interview: DEBUG
