@@ -6,6 +6,20 @@ This project is a part of a shopping platform. It hosts a simple product reposit
 ./gradlew bootRun
 ```
 
+### How to run the project in a container
+To build the image against a local Docker Daemon using Google Jib, run:
+```
+./gradlew jibDockerBuild
+```
+Alternatively, you can use OCI image feature that's already built-in into Spring, however it's still not as reliable and mature as Jib:
+```
+./gradlew bootBuildImage
+```
+Either way, to run the container, just type:
+```
+docker run -p8080:8080 --rm interview.com/pricing-service:1.0.0
+```
+
 ### How to use the application
 Just open the web browser and go to http://localhost:8080/.
 There will be a Swagger UI with several REST services available.

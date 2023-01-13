@@ -3,6 +3,7 @@ plugins {
 	id 'io.freefair.lombok' version '6.6.1'
 	id 'org.springframework.boot' version '3.0.1'
 	id 'io.spring.dependency-management' version '1.1.0'
+	id 'com.google.cloud.tools.jib' version '3.3.0'
 }
 
 group = 'com.interview'
@@ -30,4 +31,18 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+}
+
+tasks.named("bootBuildImage") {
+	imageName = "interview.com/${rootProject.name}:${project.version}"
+}
+
+jib {
+	to {
+		image "interview.com/${rootProject.name}:${project.version}"
+	}
+	container {
+		creationTime 'USE_CURRENT_TIMESTAMP'
+		user '1000:1000'
+	}
 }
